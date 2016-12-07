@@ -34,7 +34,8 @@ def get_date_time():
 
 @flask.route("/echo", methods=['POST'])  # returns back request content
 def echo():
-    request_var = request.json  # get json from request
+    request_json = request.json  # get json from request
     # here you can work with the data from json for example:
-    # text = request.json['text']
-    return json.dumps(request_var)
+    author = request_json['author']
+    message = request_json['message']
+    return str(message) + " from " + str(author)
